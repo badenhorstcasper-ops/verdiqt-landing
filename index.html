@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Verdiqt — South Africa's disciplinary hearing assistant. Legally compliant outcomes. Built for chairpersons, HR managers, and labour consultants. 2025 Code of Good Practice."/>
+<meta property="og:title" content="Verdiqt — Disciplinary Hearings Done Right"/>
+<meta property="og:description" content="Step-by-step hearing guidance. AI-drafted outcomes in CCMA award style. Works offline. Built for South African labour law professionals."/>
+<meta property="og:image" content="https://verdiqt.inreco.co.za/icons/icon-512.png"/>
+<meta property="og:url" content="https://verdiqt.inreco.co.za"/>
+<title>Verdiqt — Disciplinary Hearings Done Right</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bur:#6B1E2E;--bur2:#8B2840;--bur3:#3D0F1A;
+  --gold:#C9A07A;--gold2:#B8883A;--gold3:#E8C99A;
+  --white:#fff;--off:#F9F6F7;--dg:#2C2C2C;--mg:#666;--lg:#ddd;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Georgia',serif;color:var(--dg);background:var(--white);overflow-x:hidden}
+.sans{font-family:Arial,Helvetica,sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(61,15,26,0.97);backdrop-filter:blur(8px);padding:14px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo img{height:48px;width:auto}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-family:Arial,sans-serif;font-size:13px;cursor:pointer;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold2);color:#fff !important;padding:9px 22px;border-radius:6px;font-weight:500 !important;transition:background 0.2s !important}
+.nav-cta:hover{background:var(--gold) !important;color:var(--bur3) !important}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--bur3);background-image:radial-gradient(ellipse at 20% 50%, rgba(107,30,46,0.6) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(184,136,58,0.08) 0%, transparent 50%);display:flex;align-items:center;padding:100px 40px 80px;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A07A' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
+.hero-left{}
+.hero-pill{display:inline-block;background:rgba(201,160,122,0.15);color:var(--gold3);border:0.5px solid rgba(201,160,122,0.3);border-radius:20px;padding:5px 16px;font-family:Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:1px;margin-bottom:24px}
+.hero-h1{font-size:52px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:20px;letter-spacing:-0.5px}
+.hero-h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-family:Arial,sans-serif;font-size:17px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:36px;max-width:440px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-hero{padding:14px 32px;border-radius:7px;font-family:Arial,sans-serif;font-size:15px;font-weight:500;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--gold2);color:#fff}
+.btn-primary:hover{background:var(--gold);color:var(--bur3)}
+.btn-outline{background:transparent;color:var(--gold3);border:1px solid rgba(201,160,122,0.4)}
+.btn-outline:hover{background:rgba(201,160,122,0.1);border-color:var(--gold)}
+.hero-trust{display:flex;flex-wrap:wrap;gap:20px}
+.trust-item{font-family:Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:6px}
+.trust-dot{width:5px;height:5px;border-radius:50%;background:var(--gold2)}
+.hero-right{display:flex;justify-content:center;align-items:center}
+.hero-logo-wrap{position:relative}
+.hero-logo-wrap img{width:100%;max-width:420px;height:auto;border-radius:12px}
+.hero-glow{position:absolute;inset:-20px;background:radial-gradient(ellipse,rgba(184,136,58,0.15) 0%,transparent 70%);pointer-events:none;border-radius:50%}
+
+/* TRUST BAR */
+.trust-bar{background:var(--off);border-top:0.5px solid var(--lg);border-bottom:0.5px solid var(--lg);padding:18px 40px}
+.trust-bar-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.tb-item{font-family:Arial,sans-serif;font-size:12px;color:var(--mg);display:flex;align-items:center;gap:8px;font-weight:500}
+.tb-dot{width:6px;height:6px;border-radius:50%;background:var(--bur)}
+
+/* PROBLEM */
+#problem{padding:100px 40px;background:#fff}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-family:Arial,sans-serif;font-size:11px;font-weight:500;color:var(--bur);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:38px;font-weight:700;color:var(--dg);line-height:1.2;margin-bottom:16px}
+.section-sub{font-family:Arial,sans-serif;font-size:17px;color:var(--mg);line-height:1.7;max-width:600px;margin-bottom:60px}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prob-card{background:var(--off);border:0.5px solid var(--lg);border-radius:12px;padding:28px;border-top:3px solid var(--bur)}
+.prob-icon{font-size:28px;margin-bottom:14px}
+.prob-title{font-size:17px;font-weight:700;color:var(--dg);margin-bottom:8px}
+.prob-body{font-family:Arial,sans-serif;font-size:14px;color:var(--mg);line-height:1.6}
+
+/* SOLUTION */
+#solution{padding:100px 40px;background:var(--bur3)}
+.solution-title{font-size:38px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:16px}
+.solution-sub{font-family:Arial,sans-serif;font-size:17px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:60px;max-width:600px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat-card{background:rgba(255,255,255,0.06);border:0.5px solid rgba(201,160,122,0.2);border-radius:12px;padding:26px}
+.feat-icon{width:40px;height:40px;border-radius:8px;background:rgba(184,136,58,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.feat-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round}
+.feat-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+.feat-body{font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6}
+
+/* WHO */
+#who{padding:100px 40px;background:#fff}
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px}
+.who-card{border:0.5px solid var(--lg);border-radius:12px;padding:28px;text-align:center;transition:border-color 0.2s,transform 0.2s}
+.who-card:hover{border-color:var(--bur);transform:translateY(-4px)}
+.who-avatar{width:56px;height:56px;border-radius:50%;background:var(--bur);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px}
+.who-title{font-size:16px;font-weight:700;color:var(--dg);margin-bottom:8px}
+.who-body{font-family:Arial,sans-serif;font-size:13px;color:var(--mg);line-height:1.6}
+
+/* LEGAL */
+#legal{padding:80px 40px;background:var(--off)}
+.legal-inner{max-width:900px;margin:0 auto;text-align:center}
+.legal-title{font-size:32px;font-weight:700;color:var(--dg);margin-bottom:16px}
+.legal-sub{font-family:Arial,sans-serif;font-size:16px;color:var(--mg);line-height:1.7;margin-bottom:40px}
+.legal-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.legal-badge{background:#fff;border:0.5px solid var(--lg);border-radius:8px;padding:10px 18px;font-family:Arial,sans-serif;font-size:13px;color:var(--dg);font-weight:500}
+
+/* PRICING */
+#pricing{padding:100px 40px;background:#fff}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:60px auto 0}
+.price-card{border:0.5px solid var(--lg);border-radius:14px;padding:32px;position:relative;transition:transform 0.2s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.featured{border:2px solid var(--bur)}
+.pc-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--bur);color:#fff;font-family:Arial,sans-serif;font-size:11px;font-weight:500;padding:4px 16px;border-radius:20px;white-space:nowrap}
+.pc-name{font-family:Arial,sans-serif;font-size:11px;font-weight:500;color:var(--mg);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.pc-price{font-size:40px;font-weight:700;color:var(--dg);line-height:1}
+.pc-period{font-family:Arial,sans-serif;font-size:13px;color:var(--mg);margin-top:6px;margin-bottom:24px}
+.pc-divider{height:0.5px;background:var(--lg);margin-bottom:24px}
+.pc-feature{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-family:Arial,sans-serif;font-size:13px;color:#444;line-height:1.5}
+.pc-check{color:var(--bur);font-weight:700;font-size:14px;flex-shrink:0;margin-top:1px}
+.pc-btn{display:block;width:100%;margin-top:28px;padding:13px;border-radius:8px;font-family:Arial,sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-align:center;text-decoration:none;border:0.5px solid var(--bur);background:#fff;color:var(--bur);transition:all 0.2s}
+.pc-btn:hover{background:var(--off)}
+.pc-btn.primary{background:var(--bur);color:#fff;border-color:var(--bur)}
+.pc-btn.primary:hover{background:var(--bur2)}
+.update-note{text-align:center;margin-top:20px;font-family:Arial,sans-serif;font-size:13px;color:var(--mg)}
+
+/* CCMA */
+#ccma{padding:80px 40px;background:var(--bur3)}
+.ccma-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.ccma-left .section-label{color:var(--gold)}
+.ccma-title{font-size:34px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:16px}
+.ccma-sub{font-family:Arial,sans-serif;font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7}
+.ccma-right{display:flex;flex-direction:column;gap:12px}
+.ccma-card{border-radius:12px;padding:16px 20px}
+.ccma-card.safe{background:rgba(22,101,52,0.3);border:0.5px solid rgba(187,247,208,0.3)}
+.ccma-card.amber{background:rgba(146,64,14,0.3);border:0.5px solid rgba(253,230,138,0.3)}
+.ccma-card.red{background:rgba(163,45,45,0.3);border:0.5px solid rgba(254,202,202,0.3)}
+.ccma-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.ccma-label{font-family:Arial,sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+.ccma-label.safe{color:#86efac}.ccma-label.amber{color:#fde68a}.ccma-label.red{color:#fca5a5}
+.ccma-days{font-size:28px;font-weight:500}
+.ccma-days.safe{color:#86efac}.ccma-days.amber{color:#fde68a}.ccma-days.red{color:#fca5a5}
+.ccma-name{font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.8)}
+.ccma-detail{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px}
+.ccma-bar{height:4px;border-radius:2px;background:rgba(255,255,255,0.1);margin-top:10px;overflow:hidden}
+.ccma-fill{height:100%;border-radius:2px}
+.ccma-fill.safe{background:#86efac;width:15%}
+.ccma-fill.amber{background:#fde68a;width:65%}
+.ccma-fill.red{background:#fca5a5;width:94%}
+
+/* TESTIMONIAL / QUOTE */
+#quote{padding:100px 40px;background:var(--off)}
+.quote-inner{max-width:800px;margin:0 auto;text-align:center}
+.quote-mark{font-size:80px;color:var(--bur);opacity:0.2;line-height:0.8;margin-bottom:20px;font-family:Georgia,serif}
+.quote-text{font-size:26px;font-weight:400;color:var(--dg);line-height:1.5;margin-bottom:32px;font-style:italic}
+.quote-author{font-family:Arial,sans-serif;font-size:14px;color:var(--mg)}
+.quote-author strong{color:var(--bur);font-weight:500}
+
+/* CTA */
+#cta{padding:120px 40px;background:var(--bur3);text-align:center}
+.cta-logo{margin:0 auto 32px;display:block;max-width:240px;height:auto}
+.cta-title{font-size:44px;font-weight:700;color:#fff;margin-bottom:16px;line-height:1.2}
+.cta-sub{font-family:Arial,sans-serif;font-size:18px;color:rgba(255,255,255,0.6);margin-bottom:48px;line-height:1.6}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-trust{margin-top:32px;font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.35)}
+
+/* FOOTER */
+footer{background:#0D0508;padding:48px 40px 32px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand img{height:60px;width:auto;margin-bottom:12px}
+.footer-brand p{font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.35);line-height:1.6}
+.footer-col h4{font-family:Arial,sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.footer-col a{display:block;font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;cursor:pointer}
+.footer-col a:hover{color:var(--gold)}
+.footer-divider{height:0.5px;background:rgba(255,255,255,0.08);margin-bottom:20px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
+.footer-legal{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.25);line-height:1.7;max-width:600px}
+.footer-right{font-family:Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.2);text-align:right}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:12px 20px}
+  .nav-links{display:none}
+  #hero{padding:100px 20px 60px}
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-right{display:none}
+  .hero-h1{font-size:36px}
+  .problem-grid,.features-grid,.who-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr;max-width:400px}
+  .ccma-inner{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .trust-bar-inner{gap:16px}
+  section{padding:60px 20px !important}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="icons/verdiqt-logo-dark.png" alt="Verdiqt" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span style="display:none;font-family:Georgia,serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:1px">VERDIQT</span>
+  </div>
+  <div class="nav-links sans">
+    <a onclick="document.getElementById('problem').scrollIntoView({behavior:'smooth'})">Why Verdiqt</a>
+    <a onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'})">Features</a>
+    <a onclick="document.getElementById('who').scrollIntoView({behavior:'smooth'})">Who it's for</a>
+    <a onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Pricing</a>
+    <a href="verdiqt.inreco.co.za" class="nav-cta">Open app</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-pill sans">South African labour law · 2025 Code of Good Practice</div>
+      <h1 class="hero-h1">Disciplinary hearings done <em>right</em>.<br>Every time.</h1>
+      <p class="hero-sub sans">Verdiqt guides you through every step of a legally compliant disciplinary hearing — from charge sheet to signed finding — calibrated to the 2025 Code of Good Practice: Dismissal.</p>
+      <div class="hero-btns">
+        <a href="#pricing" class="btn-hero btn-primary sans" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'});return false">Get Verdiqt from R1 500</a>
+        <a href="https://verdiqt.inreco.co.za" class="btn-hero btn-outline sans" target="_blank">Try the app →</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item sans"><div class="trust-dot"></div>No subscription required</div>
+        <div class="trust-item sans"><div class="trust-dot"></div>Works offline</div>
+        <div class="trust-item sans"><div class="trust-dot"></div>Your data stays on your device</div>
+        <div class="trust-item sans"><div class="trust-dot"></div>2025 Code compliant</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-logo-wrap">
+        <div class="hero-glow"></div>
+        <img src="icons/verdiqt-logo-dark.png" alt="Verdiqt" style="position:relative;z-index:1" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="tb-item sans"><div class="tb-dot"></div>LRA 66 of 1995</div>
+    <div class="tb-item sans"><div class="tb-dot"></div>Code of Good Practice: Dismissal 2025</div>
+    <div class="tb-item sans"><div class="tb-dot"></div>CCMA Guidelines on Misconduct Arbitrations</div>
+    <div class="tb-item sans"><div class="tb-dot"></div>POPIA compliant</div>
+    <div class="tb-item sans"><div class="tb-dot"></div>Built by a labour law specialist</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-inner">
+    <div class="section-label sans">The problem</div>
+    <h2 class="section-title">Most employers lose at the CCMA<br>before the hearing even starts.</h2>
+    <p class="section-sub sans">Not because the employee was innocent. Because the procedure was wrong, the charge was defective, or the finding could not withstand scrutiny. Verdiqt closes every one of those gaps.</p>
+    <div class="problem-grid">
+      <div class="prob-card">
+        <div class="prob-icon">⚖</div>
+        <div class="prob-title">Procedural unfairness</div>
+        <p class="prob-body sans">A technically guilty employee walks free because notice was defective, representation rights were not properly recorded, or the hearing was not conducted fairly. Verdiqt's guided flow eliminates this entirely.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">◫</div>
+        <div class="prob-title">Weak findings</div>
+        <p class="prob-body sans">Generic, copy-pasted outcome letters that collapse under cross-examination at the CCMA. Verdiqt generates structured findings in CCMA award style with relevant case law cited — findings that hold up.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">◷</div>
+        <div class="prob-title">Missed deadlines</div>
+        <p class="prob-body sans">The 30-day CCMA referral window catches employers off guard. Verdiqt tracks every dismissal deadline automatically and sends red alerts at day 20 and day 28 — before it is too late.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="section-inner">
+    <div class="section-label sans" style="color:var(--gold)">The solution</div>
+    <h2 class="solution-title">Everything a chairperson needs.<br>Nothing they don't.</h2>
+    <p class="solution-sub sans">Built by a South African labour law specialist. Not generic HR software adapted for SA — purpose-built for the way South African disciplinary hearings actually work.</p>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+        <div class="feat-title">Guided hearing flow</div>
+        <p class="feat-body sans">9-step guided workflow from opening rights to sanction delivery. Checklists, prompts, and suggested wording for every stage. Nothing gets missed.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg></div>
+        <div class="feat-title">Legal decision engine</div>
+        <p class="feat-body sans">The 2025 Code seven-factor substantive fairness test built in. Generates a risk profile and sanction range based on the evidence. Defensible every time.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></div>
+        <div class="feat-title">AI finding writer</div>
+        <p class="feat-body sans">AI drafts findings in CCMA award style with case law citations — Sidumo, Edcon v Pillemer, Avril Elizabeth. You review, edit, and approve. Every draft is watermarked until you sign off.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="feat-title">CCMA deadline tracker</div>
+        <p class="feat-body sans">30-day countdown starts automatically on every dismissal. Amber alert at day 20. Red alert at day 28. One-click employer notification. Never miss a referral window again.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
+        <div class="feat-title">Client vault</div>
+        <p class="feat-body sans">Upload disciplinary codes, employment contracts, evidence photos, and signed letters per client. Available instantly in every hearing. Scan documents with your phone camera.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+        <div class="feat-title">Professional documents</div>
+        <p class="feat-body sans">Finding reports, outcome letters, and disciplinary records in PDF and Word. Professionally styled. Share via email or WhatsApp directly from the app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who">
+  <div class="section-inner">
+    <div class="section-label sans">Who it's for</div>
+    <h2 class="section-title">Built for every South African<br>labour law professional.</h2>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-avatar">⚖</div>
+        <div class="who-title">Labour consultants</div>
+        <p class="who-body sans">Conduct hearings at client premises with confidence. Generate professional findings on the spot. Invoice directly from the app.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-avatar">◫</div>
+        <div class="who-title">HR managers</div>
+        <p class="who-body sans">Handle disciplinary matters in-house without relying on external consultants for every hearing. Defensible outcomes every time.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-avatar">◈</div>
+        <div class="who-title">Employer organisations</div>
+        <p class="who-body sans">NEASA, SEIFSA, CAPES, and similar — equip your officials with a consistent, legally current tool across all member hearings.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-avatar">✦</div>
+        <div class="who-title">Independent chairpersons</div>
+        <p class="who-body sans">Appointed to chair hearings externally. Walk into any boardroom with the full legal framework at your fingertips — offline, on any device.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL COMPLIANCE -->
+<section id="legal">
+  <div class="legal-inner">
+    <div class="section-label sans" style="text-align:center">Legal currency</div>
+    <h2 class="legal-title">Calibrated to the latest South African law.</h2>
+    <p class="legal-sub sans">Verdiqt is updated when legislation changes. Every hearing flow, charge template, and decision framework reflects current law — not outdated guidelines.</p>
+    <div class="legal-badges">
+      <div class="legal-badge sans">Labour Relations Act 66 of 1995</div>
+      <div class="legal-badge sans">Code of Good Practice: Dismissal (GG 53294, 2025)</div>
+      <div class="legal-badge sans">CCMA Guidelines on Misconduct Arbitrations</div>
+      <div class="legal-badge sans">Basic Conditions of Employment Act</div>
+      <div class="legal-badge sans">Employment Equity Act</div>
+      <div class="legal-badge sans">POPIA — Protection of Personal Information Act</div>
+    </div>
+  </div>
+</section>
+
+<!-- CCMA TRACKER DEMO -->
+<section id="ccma">
+  <div class="ccma-inner">
+    <div class="ccma-left">
+      <div class="section-label sans" style="color:var(--gold)">CCMA deadline tracker</div>
+      <h2 class="ccma-title">Never miss a 30-day referral window again.</h2>
+      <p class="ccma-sub sans">The moment you record a dismissal, Verdiqt starts the countdown. Amber alert at day 20. Red alert at day 28 — with a one-tap employer notification. Every dismissal tracked automatically.</p>
+    </div>
+    <div class="ccma-right">
+      <div class="ccma-card red">
+        <div class="ccma-card-top">
+          <div>
+            <div class="ccma-label red sans">Red alert — act now</div>
+            <div class="ccma-name sans">S. Mokoena · VQ-2025-008</div>
+            <div class="ccma-detail sans">ABC Retail · Dismissed 7 Apr · Insubordination</div>
+          </div>
+          <div style="text-align:right">
+            <div class="ccma-days red">2</div>
+            <div class="ccma-detail sans">days left</div>
+          </div>
+        </div>
+        <div class="ccma-bar"><div class="ccma-fill red"></div></div>
+      </div>
+      <div class="ccma-card amber">
+        <div class="ccma-card-top">
+          <div>
+            <div class="ccma-label amber sans">Amber warning</div>
+            <div class="ccma-name sans">P. van Wyk · VQ-2025-011</div>
+            <div class="ccma-detail sans">Greenfield Farms · Dismissed 18 Apr · Theft</div>
+          </div>
+          <div style="text-align:right">
+            <div class="ccma-days amber">11</div>
+            <div class="ccma-detail sans">days left</div>
+          </div>
+        </div>
+        <div class="ccma-bar"><div class="ccma-fill amber"></div></div>
+      </div>
+      <div class="ccma-card safe">
+        <div class="ccma-card-top">
+          <div>
+            <div class="ccma-label safe sans">Safe period</div>
+            <div class="ccma-name sans">T. Nkosi · VQ-2025-014</div>
+            <div class="ccma-detail sans">XYZ Logistics · Dismissed 29 Apr · Absenteeism</div>
+          </div>
+          <div style="text-align:right">
+            <div class="ccma-days safe">22</div>
+            <div class="ccma-detail sans">days left</div>
+          </div>
+        </div>
+        <div class="ccma-bar"><div class="ccma-fill safe"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section id="quote">
+  <div class="quote-inner">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">The CCMA does not reward complexity. It rewards procedure followed correctly, evidence assessed fairly, and a finding that can withstand scrutiny. Verdiqt is built around exactly those three things.</p>
+    <div class="quote-author sans">— Built by a South African labour law specialist with <strong>years of CCMA arbitration experience</strong></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <div class="section-label sans">Pricing</div>
+      <h2 class="section-title">Once-off. No subscription. No surprises.</h2>
+      <p class="section-sub sans" style="margin:0 auto 0">Pay once. Use forever. Optional LiveUpdate keeps your legal content current.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="pc-name sans">Starter</div>
+        <div class="pc-price">R1 500</div>
+        <div class="pc-period sans">Once-off · single user · permanent</div>
+        <div class="pc-divider"></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Full guided hearing flow — 9 steps</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Charge builder — all categories</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Legal decision engine (2025 Code)</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">PDF & Word document export</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Client vault & file uploads</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">CCMA deadline tracker</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Works offline on any device</span></div>
+        <a href="#" class="pc-btn sans" onclick="alert('Payment system coming soon — contact us at verdiqt@inreco.co.za')">Buy Starter</a>
+      </div>
+      <div class="price-card featured">
+        <div class="pc-badge sans">Most popular</div>
+        <div class="pc-name sans">Professional</div>
+        <div class="pc-price">R2 500</div>
+        <div class="pc-period sans">Once-off · single user · permanent</div>
+        <div class="pc-divider"></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Everything in Starter</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">AI document writer — CCMA award style</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Case law citations — auto-inserted</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Invoice generator with your rates</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">WhatsApp & email document sharing</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">+ LiveUpdate R99/month (optional)</span></div>
+        <a href="#" class="pc-btn primary sans" onclick="alert('Payment system coming soon — contact us at verdiqt@inreco.co.za')">Buy Professional</a>
+      </div>
+      <div class="price-card">
+        <div class="pc-name sans">Practice pack</div>
+        <div class="pc-price">R6 000</div>
+        <div class="pc-period sans">Once-off · up to 5 users</div>
+        <div class="pc-divider"></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Everything in Professional</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">5 separate user licences</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Employer organisation mode</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Priority support via WhatsApp</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">Branded outcome letters</span></div>
+        <div class="pc-feature"><span class="pc-check">✓</span><span class="sans">First legal update included free</span></div>
+        <a href="#" class="pc-btn sans" onclick="alert('Payment system coming soon — contact us at verdiqt@inreco.co.za')">Buy Practice pack</a>
+      </div>
+    </div>
+    <p class="update-note sans">LiveUpdate — R99/month (optional) · Keeps legal content current when the Code changes · Cancel anytime</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta">
+  <img src="icons/verdiqt-logo-dark.png" class="cta-logo" alt="Verdiqt" onerror="this.style.display='none'"/>
+  <h2 class="cta-title">Procedurally fair. Every hearing.</h2>
+  <p class="cta-sub sans">Join South African labour law professionals who conduct hearings with confidence, generate defensible outcomes, and never miss a CCMA deadline.</p>
+  <div class="cta-btns">
+    <a href="#pricing" class="btn-hero btn-primary sans" style="font-size:16px;padding:16px 36px" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'});return false">Get Verdiqt — from R1 500</a>
+    <a href="https://verdiqt.inreco.co.za" class="btn-hero btn-outline sans" style="font-size:16px;padding:16px 36px" target="_blank">Open the app →</a>
+  </div>
+  <p class="cta-trust sans">No subscription · No cloud · Your data stays on your device · Works offline · 2025 Code compliant</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="icons/verdiqt-logo-dark.png" alt="Verdiqt" onerror="this.style.display='none'"/>
+        <p class="sans">Built for chairpersons. Trusted by professionals. South Africa's dedicated disciplinary hearing assistant, calibrated to the 2025 Code of Good Practice: Dismissal.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="sans">Product</h4>
+        <a class="sans" onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'})">Features</a>
+        <a class="sans" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Pricing</a>
+        <a class="sans" href="https://verdiqt.inreco.co.za" target="_blank">Open app</a>
+        <a class="sans">LiveUpdate</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="sans">Legal</h4>
+        <a class="sans">EULA</a>
+        <a class="sans">Privacy policy</a>
+        <a class="sans">POPIA disclosure</a>
+        <a class="sans">Terms of sale</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="sans">Contact</h4>
+        <a class="sans" href="mailto:verdiqt@inreco.co.za">verdiqt@inreco.co.za</a>
+        <a class="sans">WhatsApp support</a>
+        <a class="sans">User guide</a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <div class="footer-legal sans">
+        <strong style="color:rgba(255,255,255,0.4)">Verdiqt</strong> is a product of <strong style="color:rgba(255,255,255,0.4)">Inreco Consulting</strong> (sole proprietor). Verdiqt is decision-support software and does not constitute legal advice. The chairperson remains solely responsible for all findings and outcomes. All data is stored locally on the user's device. Verdiqt does not collect, process, or store personal information. Payments processed by PayFast (Pty) Ltd. Bank statement reference: INRECO/VERDIQT.
+      </div>
+      <div class="footer-right sans">© 2025 Inreco Consulting<br>verdiqt.inreco.co.za</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
